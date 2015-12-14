@@ -23,7 +23,7 @@
     "expandjs": "ExpandJS/expandjs#0.10.0",
     "xp-collapse-behavior": "ExpandJS/xp-collapse-behavior#0.10.0",
     "xp-master-behavior": "ExpandJS/xp-master-behavior#0.10.0",
-    "xp-selector-multi-behavior": "ExpandJS/xp-selector-multi-behavior#0.10.0",
+    "xp-selector": "ExpandJS/xp-selector#0.10.0",
     "xp-slave-behavior": "ExpandJS/xp-slave-behavior#0.10.0",
     "xp-wrapper-behavior": "ExpandJS/xp-wrapper-behavior#0.10.0",
     "polymer": "Polymer/polymer#^1.2.0"
