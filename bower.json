@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "expandjs": "ExpandJS/expandjs#0.10.0",
-    "xp-collapse": "ExpandJS/xp-collapse#0.10.0",
+    "xp-collapse-behavior": "ExpandJS/xp-collapse-behavior#0.10.0",
     "xp-master-behavior": "ExpandJS/xp-master-behavior#0.10.0",
     "xp-selector-multi-behavior": "ExpandJS/xp-selector-multi-behavior#0.10.0",
     "xp-slave-behavior": "ExpandJS/xp-slave-behavior#0.10.0",
