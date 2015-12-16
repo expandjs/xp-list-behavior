@@ -40,7 +40,7 @@ A behavior used to add sublist capabilities on a custom element.
         // OBSERVERS
         observers: [
             '_listObserver(collapsed, collapsible, list)',
-            '_transitionObserver(collapser, duration, easing)'
+            '_transitionObserver(collapsed, collapser, duration, easing)'
         ],
 
         // PROPERTIES
@@ -108,6 +108,9 @@ A behavior used to add sublist capabilities on a custom element.
         // OBSERVER
         _collapsedObserver: function () {
 
+            // Checking
+            if (!this.isAttached) { return; }
+
             // Vars
             var self       = this,
                 collapsed  = self.collapsed,
@@ -132,17 +135,20 @@ A behavior used to add sublist capabilities on a custom element.
 
                 // Styling
                 XP.forEach(elements, function (elem) {
-                    elem.style.transition = elem.style.webkitTransition = '-webkit-transform 0s, transform 0s';
-                    elem.style.transform  = elem.style.webkitTransform  = 'translateY(' + (collapsed ? base : height) + 'px)';
+                	elem.style.transition = 'transform 0s';
+                    elem.style.transform  = 'translateY(' + (collapsed ? base : height) + 'px)';
                 });
+
+                // Translating
+                self.collapser.style.transform = 'translateY(' + (collapsed ? '-100' : '0') + '%)';
 
                 // Frame 2
                 requestAnimationFrame(function () {
 
                     // Styling
                     XP.forEach(elements, function (elem) {
-                        elem.style.transition = elem.style.webkitTransition = '-webkit-transform ' + (duration / 1000) + 's ' + easing + ', transform ' + (duration / 1000) + 's ' + easing + '';
-                        elem.style.transform  = elem.style.webkitTransform  = 'translateY(' + (collapsed ? height : base) + 'px)';
+                    	elem.style.transition = 'transform ' + (duration / 1000) + 's ' + easing;
+                    	elem.style.transform  = 'translateY(' + (collapsed ? height : base) + 'px)';
                     });
 
                     // Debouncing
@@ -153,8 +159,8 @@ A behavior used to add sublist capabilities on a custom element.
 
                         // Styling
                         XP.forEach(elements, function (elem) {
-                            elem.style.transition = elem.style.webkitTransition = '-webkit-transform 0s, transform 0s';
-                            elem.style.transform  = elem.style.webkitTransform  = 'translateY(0)';
+                            elem.style.transition = 'transform 0s';
+                            elem.style.transform  = 'translateY(0)';
                         });
 
                     }, duration);
@@ -195,8 +201,7 @@ A behavior used to add sublist capabilities on a custom element.
             var self = this;
 
             // Styling
-            self.collapser.style.transition       = 'transform ' + (self.duration / 1000) + 's ' + self.easing;
-            self.collapser.style.webkitTransition = '-webkit-transform ' + (self.duration / 1000) + 's ' + self.easing;
+            self.collapser.style.transition = 'transform ' + (self.duration / 1000) + 's ' + self.easing;
         },
 
         /*********************************************************************/
