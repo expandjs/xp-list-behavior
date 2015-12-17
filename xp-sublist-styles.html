@@ -30,14 +30,6 @@ A stylesheet used to stylize a sublist element.
         <style include="xp-collapse-styles"></style>
 
         <style>
-            :host .collapsible {
-                transform: translateY(0%);
-            }
-
-            :host([collapsed]) .collapsible {
-                transform: translateY(-100%);
-            }
-
             :host([collapsed]:not([collapsing])) .collapsible {
                 display: block !important;
                 height: 0 !important;

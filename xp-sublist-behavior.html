@@ -239,6 +239,9 @@ A behavior used to add sublist capabilities on a custom element.
             self.mastersMap.list      = '.list';
             self.mastersMap.superlist = '.sublist';
             self.slavesMap.sublists   = '.sublist';
+
+            // Translating
+            self.collapser.style.transform = 'translateY(' + (self.collapsed ? '-100' : '0') + '%)';
         }
     };
 
